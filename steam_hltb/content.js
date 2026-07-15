@@ -32,6 +32,7 @@ const STYLES = {
   separator: `
     color: #4a6572;
     margin: 0 8px;
+    font-size: 14px;
   `,
   error: `
     font-size: 14px;
@@ -49,7 +50,29 @@ function alreadyInjected() {
   return !!document.getElementById(CONTAINER_ID);
 }
 
+function ensureMobileStyles() {
+  if (document.getElementById("hltb-mobile-style")) return;
+  const style = document.createElement("style");
+  style.id = "hltb-mobile-style";
+  style.textContent = `
+    @media (max-width: 700px) {
+      #${CONTAINER_ID} {
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        gap: 8px 16px;
+      }
+      #${CONTAINER_ID} * {
+        overflow-wrap: anywhere;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function createContainer() {
+  ensureMobileStyles();
   const el = document.createElement("div");
   el.id = CONTAINER_ID;
   el.style.cssText = STYLES.container;
@@ -95,6 +118,7 @@ function showNoData(el, name) {
 
 function makeStat(label, value) {
   const span = document.createElement("span");
+  span.style.cssText = STYLES.text;
   const strong = document.createElement("strong");
   strong.textContent = `${label}:`;
   span.appendChild(strong);
