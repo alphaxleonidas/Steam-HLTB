@@ -35,9 +35,7 @@ Forked from https://addons.mozilla.org/en-US/firefox/addon/steam-hltb/
 
 ## Android [Firefox]
 
-- Download file:
-
-  Download the .xpi from the [Releases](https://github.com/alphaxleonidas/Steam-HLTB/releases) section.
+- Download the .xpi from the [Releases](https://github.com/alphaxleonidas/Steam-HLTB/releases) section.
 
 - Enable debug menu:
   
