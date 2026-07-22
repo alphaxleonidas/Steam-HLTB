@@ -2,7 +2,20 @@
 Displays HowLongToBeat times on Steam game pages whenever available. Firefox Extension
 
 
-Forked from https://addons.mozilla.org/en-US/firefox/addon/steam-hltb/
+Forked from [Steam HLTB](https://addons.mozilla.org/en-US/firefox/addon/steam-hltb/)
+
+Distinguishing features of the fork:
+
+  - Fixed an issue where the data was shown for another game
+  - Added mobile support
+  - Planned development with HLTB changes
+
+
+## Download & Install
+
+<a href="https://addons.mozilla.org/en-US/firefox/addon/steam-hltb-fork/"><img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt='Get the Extension on Firefox' height="75"></a>
+
+## Screenshots
 
 <p float="left">
   <img
