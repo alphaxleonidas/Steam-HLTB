@@ -13,33 +13,28 @@ const STYLES = {
   container: `
     background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
     border-bottom: 2px solid #66c0f4;
-    padding: 12px 20px;
     font-family: Arial, sans-serif;
     color: #c7d5e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    z-index: 1000;
   `,
   link: `
     color: #66c0f4;
     text-decoration: none;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
   `,
   separator: `
+    display: inline-block;
+    width: 8px;
+    text-align: center;
     color: #4a6572;
-    margin: 0 8px;
-    font-size: 14px;
+    font-size: 16px;
   `,
   error: `
-    font-size: 14px;
+    font-size: 16px;
     color: #ff6b6b;
   `,
   text: `
-    font-size: 14px;
+    font-size: 16px;
   `,
   highlight: `
     color: #66c0f4;
@@ -50,11 +45,19 @@ function alreadyInjected() {
   return !!document.getElementById(CONTAINER_ID);
 }
 
-function ensureMobileStyles() {
+function ensureContainerStyles() {
   if (document.getElementById("hltb-mobile-style")) return;
   const style = document.createElement("style");
   style.id = "hltb-mobile-style";
   style.textContent = `
+    #${CONTAINER_ID} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      padding: 12px 26px;
+      box-sizing: border-box;
+    }
     @media (max-width: 700px) {
       #${CONTAINER_ID} {
         flex-wrap: wrap;
@@ -65,6 +68,7 @@ function ensureMobileStyles() {
       }
       #${CONTAINER_ID} * {
         overflow-wrap: anywhere;
+        font-size: 14px !important;
       }
     }
   `;
@@ -72,7 +76,7 @@ function ensureMobileStyles() {
 }
 
 function createContainer() {
-  ensureMobileStyles();
+  ensureContainerStyles();
   const el = document.createElement("div");
   el.id = CONTAINER_ID;
   el.style.cssText = STYLES.container;
